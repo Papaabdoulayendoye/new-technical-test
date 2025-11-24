@@ -198,7 +198,7 @@ Based on our [coding standards](https://github.com/selego/new-technical-test/blo
    POST /api/project        - Creates project AND its expenses
    ```
 
-## If you want to understand better our coding standards you can check the whitepaper.md
+If you want to understand better our coding standards you can check the whitepaper.md
 
 ## Evaluation Criteria
 

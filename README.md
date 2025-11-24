@@ -302,19 +302,16 @@ A: Absolutely. Use whatever you're comfortable with. We care about the integrati
 A: No, authentication is already implemented in the boilerplate. You can use the existing user system or skip authentication entirely for the project tracker features.
 
 **Q: What about styling?**  
-A: Make it usable. We're not judging design skills, but it should be functional.
+A: Make it usable. We're not judging design skills, but it should be functional and looking at least okay!
 
 **Q: What if I can't finish in 3 hours?**  
 A: Submit what you have. A working partial solution is better than a broken complete one. Be honest about time spent.
 
 **Q: Can I use TypeScript?**  
-A: We prefer plain JavaScript, but if you're faster in TypeScript, go ahead.
+A: We prefer plain JavaScript.
 
 **Q: Should I use state management libraries?**  
-A: Use your judgment. For a small app, local state is probably fine.
-
-**Q: Do I need to actually send emails and call AI APIs?**  
-A: Yes, integrate with real services. Use free tiers. We want to see you can integrate external APIs, not mock them.
+A: Use your judgment. For a small app, local state is probably fine. Otherwise, we usually use zustand, as done with the user.
 
 ---
 

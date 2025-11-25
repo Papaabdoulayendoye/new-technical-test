@@ -66,11 +66,13 @@ Build a React interface and the according API routes where users can:
 
 - View all projects and their budget status
 - Create new projects
-- Add users to a project
-- View all the users in the project
 - Add/See expenses to projects
 - See when a project is over budget
 - Delete things if needed
+
+Optional :
+- Add users to a project
+- View all the users in the project
 
 **We're not providing wireframes or detailed specs.** Use your judgment on:
 

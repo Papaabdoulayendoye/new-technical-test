@@ -13,7 +13,6 @@ You're building a **project budget tracker**. Companies need to track their proj
 1. Create and manage projects with budgets
 2. Add expenses to projects
 3. See if they're staying within budget
-4. Get notified when a project goes over budget (via email)
 
 **What we're testing:**
 

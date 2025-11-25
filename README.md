@@ -374,7 +374,7 @@ A: Use your judgment. For a small app, local state is probably fine. Otherwise, 
 ### Development Steps
 
 1. **Design your MongoDB schemas** (think flat!)
-2. **Build the backend API and the frontend so that it match the features required**
+2. **Build the backend API and the frontend so that it match the required features**
 3. **Clean up and document**
 4. **Submit**
 

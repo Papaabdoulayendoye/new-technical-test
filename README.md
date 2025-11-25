@@ -80,7 +80,7 @@ Optional :
 - How to organize the UI
 - What actions users need
 - How to show budget alerts
-- What the persons using the app would need so that it's useful for them.
+- What the persons using the app would need so that it's useful for them. Don't hesitate to take some freedom regarding the required features so that it's the more useful/usable possible for the user.
 
 ---
 

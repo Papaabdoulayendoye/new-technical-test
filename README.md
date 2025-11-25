@@ -374,12 +374,9 @@ A: Use your judgment. For a small app, local state is probably fine. Otherwise, 
 ### Development Steps
 
 1. **Design your MongoDB schemas** (think flat!)
-2. **Build the backend API**
-3. **Integrate services** (email + AI - keep them simple and modular)
-4. **Build the frontend** (connect to your API)
-5. **Test everything works** (create project, add expenses, trigger email, use AI)
-6. **Clean up and document**
-7. **Submit**
+2. **Build the backend API and the frontend so that it match the features required**
+3. **Clean up and document**
+4. **Submit**
 
 ---
 

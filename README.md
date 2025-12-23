@@ -4,6 +4,28 @@
 
 ---
 
+## Table of Contents
+
+- [The Problem](#the-problem)
+- [Stack](#stack)
+- [What's Already Built](#whats-already-built)
+- [What to Build](#what-to-build)
+  - [1. Core features](#1-core-features)
+  - [2. AI Bonus (optional)](#2-ai-bonus-optional-30-min-max)
+  - [3. Email Notification Feature Bonus (optional)](#3-email-notification-feature-bonus-optional)
+- [Technical Constraints](#technical-constraints)
+- [Evaluation Criteria](#evaluation-criteria)
+  - [1. Code Quality (40%)](#1-code-quality-40)
+  - [2. Architecture & Design (30%)](#2-architecture--design-30)
+  - [3. Functionality (20%)](#3-functionality-20)
+  - [4. Speed & Pragmatism (10%)](#4-speed--pragmatism-10)
+- [Submission Guidelines](#submission-guidelines)
+- [Frequently Asked Questions](#frequently-asked-questions)
+- [Getting Started](#getting-started)
+- [Final Notes](#final-notes)
+
+---
+
 ## The Problem
 
 You're building a **project budget tracker**. Companies need to track their projects, expenses, and know when they're about to go over budget.
@@ -71,6 +93,7 @@ Build a React interface and the according API routes where users can:
 - Delete things if needed
 
 Optional :
+
 - Add users to a project
 - View all the users in the project
 

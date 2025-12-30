@@ -65,12 +65,8 @@ async function sendEmail(to, subject, htmlContent, { params, attachment, cc, bcc
   try {
     const body = {};
     if (ENVIRONMENT !== "production") {
-      console.log("to before filter:", to);
-      to = to.filter((e) => e.email.match(regexp_exception_staging));
-      if (cc?.length) cc = cc.filter((e) => e.email.match(regexp_exception_staging));
-      if (bcc?.length) bcc = bcc.filter((e) => e.email.match(regexp_exception_staging));
+      console.log("to (dev mode, no filter):", to);
     }
-    console.log("to after filter:", to);
     body.to = to;
     if (cc?.length) body.cc = cc;
     if (bcc?.length) body.bcc = bcc;
@@ -99,10 +95,7 @@ async function sendTemplate(id, { params, emailTo, cc, bcc, attachment } = {}, {
 
     const body = { templateId: parseInt(id) };
     if (!force && ENVIRONMENT !== "production") {
-      console.log("emailTo before filter:", emailTo);
-      emailTo = emailTo.filter((e) => e.email.match(regexp_exception_staging));
-      if (cc?.length) cc = cc.filter((e) => e.email.match(regexp_exception_staging));
-      if (bcc?.length) bcc = bcc.filter((e) => e.email.match(regexp_exception_staging));
+      console.log("emailTo (dev mode, no filter):", emailTo);
     }
     if (emailTo) body.to = emailTo;
     if (cc?.length) body.cc = cc;

@@ -88,6 +88,25 @@ export default function Home() {
     }
   }
 
+  async function handleDeleteProject(projectId) {
+    if (!window.confirm("Delete this project and all its expenses?")) return
+
+    try {
+      const { ok, error: apiError } = await api.delete(`/api/projects/${projectId}`)
+      if (!ok) {
+        toast.error(apiError || "Failed to delete project")
+        return
+      }
+
+      await fetchProjects()
+      toast.success("Project deleted")
+    } catch (e) {
+      console.log(e)
+      const message = e?.error || e?.code || "Failed to delete project"
+      toast.error(message)
+    }
+  }
+
   return (
     <div className="p-8">
       <div className="flex items-center justify-between mb-6">
@@ -117,6 +136,7 @@ export default function Home() {
                 <th className="px-4 py-3 text-left font-medium text-gray-500">Remaining</th>
                 <th className="px-4 py-3 text-left font-medium text-gray-500">Status</th>
                 <th className="px-4 py-3 text-left font-medium text-gray-500">Last update</th>
+                <th className="px-4 py-3" />
               </tr>
             </thead>
             <tbody>
@@ -147,6 +167,15 @@ export default function Home() {
                     </td>
                     <td className="px-4 py-3 text-xs text-gray-500">
                       {project.updatedAt ? new Date(project.updatedAt).toLocaleDateString() : "-"}
+                    </td>
+                    <td className="px-4 py-3 text-right">
+                      <button
+                        type="button"
+                        className="text-xs text-red-600 hover:underline"
+                        onClick={() => handleDeleteProject(project._id)}
+                      >
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 )

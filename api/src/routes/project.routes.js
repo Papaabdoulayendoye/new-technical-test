@@ -148,11 +148,11 @@ router.delete('/:id', passport.authenticate(["admin", "user"], { session: false 
     }
 
     // Delete all expenses associated with this project
-    await mongoose.model('Expense').deleteMany({ project: project._id });
+    await mongoose.model("Expense").deleteMany({ project: project._id });
 
-    return res.status(200).json({ 
-      ok: true, 
-      message: 'Project and associated expenses deleted successfully' 
+    return res.status(200).json({
+      ok: true,
+      data: { deleted: true },
     });
   } catch (error) {
     console.error('Error deleting project:', error);

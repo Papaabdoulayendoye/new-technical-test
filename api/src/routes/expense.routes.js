@@ -163,9 +163,9 @@ router.delete('/:id', passport.authenticate(["admin", "user"], { session: false 
 
     await Expense.findByIdAndDelete(req.params.id);
 
-    return res.status(200).json({ 
-      ok: true, 
-      message: 'Expense deleted successfully' 
+    return res.status(200).json({
+      ok: true,
+      data: { deleted: true },
     });
   } catch (error) {
     console.error('Error deleting expense:', error);

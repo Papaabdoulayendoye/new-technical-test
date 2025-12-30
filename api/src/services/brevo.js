@@ -2,9 +2,9 @@ const fetch = require("node-fetch");
 
 const { BREVO_KEY, ENVIRONMENT } = require("../config");
 
-const SENDER_NAME = "Your Name";
-const SENDER_NAME_SMS = "Your Name";
-const SENDER_EMAIL = "Your Email";
+const SENDER_NAME = "NDOYE Papa Abdoulaye";
+const SENDER_NAME_SMS = "NDOYE Papa Abdoulaye";
+const SENDER_EMAIL = "papaabdoulayendoye23@gmail.com";
 
 const regexp_exception_staging = /selego\.co/;
 

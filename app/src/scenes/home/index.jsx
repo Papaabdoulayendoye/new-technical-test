@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import toast from "react-hot-toast"
 
 import Loader from "@/components/loader"
@@ -127,7 +128,11 @@ export default function Home() {
 
                 return (
                   <tr key={project._id} className="border-t hover:bg-gray-50">
-                    <td className="px-4 py-3 text-sm font-medium text-gray-800">{project.name}</td>
+                    <td className="px-4 py-3 text-sm font-medium text-gray-800">
+                      <Link to={`/projects/${project._id}`} className="hover:underline">
+                        {project.name}
+                      </Link>
+                    </td>
                     <td className="px-4 py-3 text-sm">{formatCurrency(project.budget)}</td>
                     <td className="px-4 py-3 text-sm">{formatCurrency(totalSpent)}</td>
                     <td className="px-4 py-3 text-sm">{formatCurrency(remaining)}</td>

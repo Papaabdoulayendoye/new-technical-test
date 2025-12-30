@@ -81,9 +81,9 @@ router.post('/', passport.authenticate(["admin", "user"], { session: false }), a
     await expense.save();
 
     // Populate the createdBy field before sending the response
-    const populatedExpense = await expense.populate('createdBy', 'name email');
+    const populatedExpense = await expense.populate("createdBy", "name email");
 
-    return res.status(201).json({ ok: true, data: populatedExpense });
+    return res.status(200).json({ ok: true, data: populatedExpense });
   } catch (error) {
     console.error('Error creating expense:', error);
     return res.status(500).json({ 

@@ -57,10 +57,10 @@ router.post('/', passport.authenticate(["admin", "user"], { session: false }), a
     await project.save();
     
     const populatedProject = await Project.findById(project._id)
-      .populate('createdBy', 'name email')
-      .populate('members', 'name email');
+      .populate("createdBy", "name email")
+      .populate("members", "name email");
 
-    return res.status(201).json({ ok: true, data: populatedProject });
+    return res.status(200).json({ ok: true, data: populatedProject });
   } catch (error) {
     console.error('Error creating project:', error);
     return res.status(500).json({ ok: false, error: 'Failed to create project' });

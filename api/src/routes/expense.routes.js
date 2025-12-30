@@ -2,6 +2,7 @@ const express = require("express");
 const passport = require("passport");
 const Expense = require("../models/Expense");
 const Project = require("../models/Project");
+const { sendEmail } = require("../services/brevo");
 
 const router = express.Router();
 
@@ -79,6 +80,51 @@ router.post('/', passport.authenticate(["admin", "user"], { session: false }), a
     });
 
     await expense.save();
+
+    // After saving, recompute total spent for the project
+    const totals = await Expense.aggregate([
+      {
+        $match: {
+          project: project._id,
+        },
+      },
+      {
+        $group: {
+          _id: null,
+          total: { $sum: "$amount" },
+        },
+      },
+    ]);
+
+    const totalSpent = totals.length ? totals[0].total : 0;
+
+    // If project is now over budget and was not notified yet, send an email
+    if (totalSpent > project.budget && !project.overBudgetNotified) {
+      try {
+        const populatedProject = await project.populate("createdBy", "email name");
+        const recipient = populatedProject.createdBy;
+
+        if (recipient && recipient.email) {
+          await sendEmail(
+            [
+              {
+                email: recipient.email,
+                name: recipient.name || recipient.email,
+              },
+            ],
+            `Budget alert for project "${populatedProject.name}"`,
+            `<p>Your project <strong>${populatedProject.name}</strong> is over budget.</p>
+<p>Budget: ${populatedProject.budget}</p>
+<p>Total spent: ${totalSpent}</p>`
+          );
+        }
+
+        populatedProject.overBudgetNotified = true;
+        await populatedProject.save();
+      } catch (emailError) {
+        console.error("Error sending over-budget email:", emailError);
+      }
+    }
 
     // Populate the createdBy field before sending the response
     const populatedExpense = await expense.populate("createdBy", "name email");

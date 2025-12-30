@@ -34,6 +34,10 @@ const ProjectSchema = new mongoose.Schema(
         ref: "user",
       },
     ],
+    overBudgetNotified: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );

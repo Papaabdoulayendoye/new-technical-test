@@ -34,6 +34,7 @@ app.get("/", async (req, res) => {
 app.use("/user", require("./controllers/user"));
 app.use("/file", require("./controllers/file"));
 app.use("/dummy", require("./controllers/dummy_controller"));
+app.use("/api", require("./controllers/projectController"));
 
 setupErrorHandler(app);
 require("./services/passport")(app);
